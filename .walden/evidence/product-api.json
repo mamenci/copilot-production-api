@@ -1,0 +1,309 @@
+{
+  "schema_version": "v1alpha2",
+  "feature": "product-api",
+  "tasks": {
+    "1": {
+      "task_fingerprint": "sha256:6dcb00a686b124e0dfd0820308db043e62666b5ee7604ec968f7396eb405814e",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            "sh",
+            "-c",
+            "python3 -m venv .venv \u0026\u0026 .venv/bin/python -m pip install -q -r requirements-dev.txt \u0026\u0026 .venv/bin/python -c 'import fastapi, pydantic, httpx2, pytest, ruff; print(\"ENV_OK\")'"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:a32c01aec7dc3375268b4a290c01e53dfefaba130485b954d3a74c6f465b9127"
+        },
+        {
+          "command": [
+            "sh",
+            "-c",
+            "test -f main.py \u0026\u0026 test -f models.py \u0026\u0026 test -f service.py \u0026\u0026 test -d tests \u0026\u0026 echo LAYOUT_OK"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:34241fd95b38676dd15723be0976deb9979c0f5ad5d393e21e118e3a7dfa812a"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "2.1": {
+      "task_fingerprint": "sha256:542edc738b6fc53296820ceaa3205e9bebfbf53466320fa9e0719a52adaa370d",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_service.py",
+            "-v",
+            "-k",
+            "create or list"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:b7c972c64b813044129598c3842daf589d6aa91f154db11ed32b3d0990476873"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "2.2": {
+      "task_fingerprint": "sha256:cc351948ce1afa254c9dec09ad2c69b708c2c8e15200039d461286825179b3b5",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_api.py",
+            "-v",
+            "-k",
+            "create or list"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:3591c08318069e6ad19c8b5a1490b7661de9ad27b44a7026d3b7df768f43117e"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "3.1": {
+      "task_fingerprint": "sha256:1eb10efce0c4c98da3ea815f33c5853861c81ab01a47178c548ae19bfac6b8ae",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_service.py",
+            "-v",
+            "-k",
+            "update"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:6e57e8b32da9af984300b13fcac69966171a32e04e8671e7d8da3e0ea9543f11"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "3.2": {
+      "task_fingerprint": "sha256:02ccd15c2199a5c18398a8cb7a5dc13e559b602a6c151b3901633e1bcce4e622",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_api.py",
+            "-v",
+            "-k",
+            "update"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:d3e10acd630fc755fde2dc67511569324fb18881df6ba78657150cafb416cc09"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "4": {
+      "task_fingerprint": "sha256:81e2c0c8e0a1da10932491b769b162f43db6bbfc8ca145c69608a1c6ba0d1f01",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_api.py",
+            "tests/test_service.py",
+            "-v",
+            "-k",
+            "invalid or unchanged"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:86be6fb8ca99627ad616ccfed167ffbe359c7de8087a17d92aaadb052154f5e6"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    },
+    "5": {
+      "task_fingerprint": "sha256:4c6c58c449577fd9c9fa5040c8d26193abdee072bb329dd5a1fb878eddedcec5",
+      "task_fingerprint_scheme": "walden/task-definition/v2",
+      "execution": {
+        "origin": "verify",
+        "policy": "verify-purity/v1",
+        "assertion_result": "passed",
+        "integrity": "pure",
+        "before_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+        "after_code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd"
+      },
+      "requirements_fingerprint": "sha256:521a948286946a04c00b71b59e2a31da0af9001c85a075d5ba20fd6f3e5b5f7a",
+      "design_fingerprint": "sha256:f3b75552d34830dd5e3c952bfab866c221626d7307cf8064705b966cbffad21f",
+      "tasks_fingerprint": "sha256:c123decdd449b4e13f0e1b02f5b764322e803369fa76825186a71a09808c0649",
+      "code_identity": "sha256:e7fad1dba20c2b10c266fb69bdc4a34ab13920771a0c97542dc1988757e8d6fd",
+      "profile": {
+        "platform": "linux/amd64",
+        "walden": "v0.14.0"
+      },
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "tests/test_api.py",
+            "tests/test_service.py",
+            "-v"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:e90e9cf7772d9fd4b3dc7d62fcf786e5f23bce4cce81619c17846ed66ebfcccf"
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "main.py",
+            "models.py",
+            "service.py",
+            "tests"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "main.py",
+            "models.py",
+            "service.py",
+            "tests"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "output_digest": "sha256:ef7d13d02214e98ca902b05257cdbe6a8e84f3b4714508efdc19766460b54209"
+        }
+      ],
+      "result": "passed",
+      "verified_at": "2026-11-09T08:51:56Z"
+    }
+  }
+}

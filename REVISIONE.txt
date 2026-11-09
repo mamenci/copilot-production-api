@@ -1,0 +1,43 @@
+REVISIONE DEL PROGETTO - copilot-production-api
+Data: 2026-11-06
+
+PUNTI DI FORZA
+- Separazione chiara: HTTP in main.py, validazione in models.py, logica in service.py.
+- Aggiornamento atomico: il nuovo prodotto viene validato prima di sostituire quello esistente.
+- Test isolati (un'app per test): 38 passati, Ruff senza errori.
+
+PROBLEMI TROVATI (per priorità)
+
+1. .venv dentro OneDrive
+   - 72 MB e 2.858 file da sincronizzare.
+   - Azione: spostare l'ambiente virtuale fuori da OneDrive o escluderlo dalla sincronizzazione.
+
+2. price: true accettato come 1.0 (verificato)
+   - Il booleano dovrebbe essere respinto, come già avviene per quantity.
+   - Azione: usare un tipo numerico che escluda i bool e aggiungere un test.
+   - Nota: modifica alle regole di validazione, quindi richiede di riaprire la fase requisiti (R4).
+
+3. Nessun limite superiore sui valori (verificato)
+   - Accettati: nome da 100.000 caratteri, prezzo 1e308, quantità 10^30.
+   - Azione: aggiungere max_length per il nome e massimi ragionevoli per prezzo e quantità.
+   - Nota: richiede di aggiornare i requisiti (R4).
+
+4. quantity: 3.0 respinta con 422
+   - Coerente con le specifiche, ma non documentato.
+   - Azione: documentare il comportamento.
+
+5. requirements.txt e requirements-dev.txt senza versioni fisse
+   - Build non riproducibili.
+   - Azione: fissare le versioni.
+
+6. Mancano README e test di concorrenza
+   - Il design prevede un lock sul catalogo, ma nessun test lo verifica.
+   - Azione: aggiungere un README e un test con creazioni concorrenti (id distinti).
+
+7. Avviso di deprecazione httpx/Starlette nei test
+   - Suggerisce di installare httpx2.
+   - Azione: passare a httpx2 quando disponibile.
+
+PROSSIMO PASSO PROPOSTO
+Applicare le correzioni 2, 3 e 5 con controllo umano su ogni modifica,
+riaprendo prima la fase requisiti per le regole di validazione.

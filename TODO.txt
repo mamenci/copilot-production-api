@@ -1,0 +1,48 @@
+TODO - copilot-production-api
+Aggiornato: 2026-11-09
+
+---
+Per riprendere esattamente da qui:
+
+1. Apri la sessione dalla cartella del progetto:  cd "/mnt/c/Users/mamenci/OneDrive - Engineering Ingegneria Informatica S.p.A/Documenti/Documentazione/Corsi/Certificazione/GitHub Copilot Learning Path Advanced – AI-Augmented Development Workflow/copilot-production-api" , poi avvia il CLI.
+2. Oppure usa  /resume  per tornare a questa sessione, mantenendo tutto il contesto.
+3. Primo messaggio suggerito: «Leggi REVISIONE.txt e  .walden/specs/product-api/ , poi applichiamo le correzioni 2, 3 e 5 riaprendo prima i requisiti.»
+
+Stato attuale: requisiti, design e task approvati; 6 task completati; 38 test passati; nessun commit effettuato.
+---
+
+COME RIPRENDERE
+1. Apri il CLI dalla cartella del progetto (o usa /resume per questa sessione).
+2. Primo messaggio suggerito:
+   "Leggi REVISIONE.txt e .walden/specs/product-api/, poi applichiamo le
+   correzioni 2, 3 e 5 riaprendo prima i requisiti."
+
+STATO ATTUALE
+- [x] Requisiti, design e piano dei task approvati (Walden)
+- [x] 6 task completati e verificati
+- [x] 47 test passati (dopo le correzioni 2, 3 e 5; limiti: nome 200, prezzo 9000000, quantita 1000000)
+- [x] 38 test iniziali passati, Ruff senza errori
+- [x] Prova manuale HTTP con Uvicorn riuscita
+- [x] Revisione del codice eseguita (vedi REVISIONE.txt)
+- [ ] Nessun commit effettuato
+
+DA FARE (in ordine)
+- [x] 1. Riaprire i requisiti (R4) per le nuove regole di validazione:
+        - price non può essere booleano
+        - limiti massimi su nome, prezzo e quantità
+        Poi: aggiornare design e task, rivedere e approvare di nuovo.
+- [x] 2. Correzione 2: respingere price booleano + test
+- [x] 3. Correzione 3: aggiungere limiti (max_length nome, massimi prezzo/quantità) + test
+- [x] 4. Correzione 5: fissare le versioni in requirements.txt e requirements-dev.txt
+- [-] 5. Correzione 1 (SALTATA su richiesta dell'utente): spostare .venv fuori da OneDrive (o escluderlo dalla sincronizzazione)
+- [x] 6. Rieseguire: pytest, ruff check, ruff format --check
+- [x] 7. Rieseguire: walden verify product-api
+
+DA VALUTARE (opzionali)
+- [x] README con istruzioni di avvio e note sul comportamento (es. quantity 3.0 respinta)
+- [x] Test di concorrenza sul lock di ProductService (id distinti)
+- [x] Passare a httpx2 quando disponibile (avviso di deprecazione nei test)
+
+CHIUSURA ESERCIZIO
+- [ ] Decidere se fare il commit (nessun commit è stato fatto finora)
+- [ ] Applicare le modifiche mantenendo il controllo umano su ogni decisione
